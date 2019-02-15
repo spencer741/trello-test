@@ -18,7 +18,7 @@ var loginObj = {un : "", ps : ""};
 
 loginPrompt(loginObj);
 
-/* Wrote all this code, then realized this will trigger a page refresh... I need to parse the data I get back. Let's go async now lol I'm an idiot
+//I wonder what behavior this will exhibit in an iframe.
 let form = document.createElement("form");
 form.setAttribute("method", "POST");
 form.setAttribute("action", "https://footprints.mtsu.edu/MRcgi/MRlogin.pl");
@@ -28,7 +28,7 @@ username.setAttribute("USER", loginObj.un);
 form.appendChild(username);
 
 let password = document.createElement("input")
-password.setAttribute("PASSWORD", loginObj.un);
+password.setAttribute("PASSWORD", loginObj.ps);
 form.appendChild(password);
 
 document.body.appendChild(form);
@@ -39,6 +39,11 @@ form.submit();
 
 */
 
+
+
+
+
+/*
 //Here we go... let's get this right this time. I just tested with postman, and they don't check content type.
 //As long as the body is form encoded, it accepts the request.
 //application/x-www-form-urlencoded goes like this...
@@ -60,6 +65,11 @@ request.open('POST', "https://footprints.mtsu.edu/MRcgi/MRlogin.pl", true);
     };
 
 request.send("USER=" + loginObj.un + "&PASSWORD=" + loginObj.ps);
+
+//...well crap...same-origin-policy is enforced in an iframe as well... remember that SOP is enforced with POST requests.
+*/
+
+
 
 
 /*
