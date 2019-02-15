@@ -46,7 +46,22 @@ form.submit();
 
 var request = new XMLHttpRequest();
 
-request.open('POST', "/BasicAuth", true);
+request.open('POST', "https://footprints.mtsu.edu/MRcgi/MRlogin.pl", true);
+
+ request.onreadystatechange = function () {
+	//If Successful
+	if (request.readyState == 4 && request.status == 200) {
+		
+		var body = request.response;
+
+		t.set("Auto Set");
+
+	}
+    };
+
+request.send("USER=" + loginObj.un + "&PASSWORD=" + loginObj.ps);
+
+
 /*
 var BLACK_ROCKET_ICON = 'https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421';
 
