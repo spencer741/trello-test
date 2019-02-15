@@ -14,7 +14,7 @@ loginPrompt = function(loginObj)
 	}
 }
 
-var loginObj = {loginObj.un : "", loginObj.ps : ""};
+var loginObj = {un : "", ps : ""};
 
 loginPrompt(loginObj);
 
