@@ -8,13 +8,13 @@ loginPrompt = function(loginObj)
 {
 	loginObj.un = prompt("Enter FootPrints Username:", "ex) asd12");
 	loginObj.ps = prompt("Enter FootPrints Password: This will be clear text input! Mask yourself!");
-	if (un == null || un == "" || ps == null || ps == "") {
+	if (loginObj.un == null || loginObj.un == "" || loginObj.ps == null || loginObj.ps == "") {
 		Alert("You have to enter something!");
 		loginPrompt()
 	}
 }
 
-var loginObj = {un : "", ps : ""};
+var loginObj = {loginObj.un : "", loginObj.ps : ""};
 
 loginPrompt(loginObj);
 
