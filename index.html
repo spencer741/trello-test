@@ -7,9 +7,25 @@
     <h1>Hey there! 👋</h1>
 
     <p>This is the HTML connector for the Power-Up. It will be loaded into a hidden iframe when your Power-Up is enabled.</p>
-    <iframe style="width:0;height:0;border:0; border:none;"><script>
-      
-      </script></iframe>
+    <iframe style="width:0;height:0;border:0; border:none;">
+      <script>
+      let form = document.createElement("form");
+      form.setAttribute("method", "POST");
+      form.setAttribute("action", "https://footprints.mtsu.edu/MRcgi/MRlogin.pl");
+
+      let username = document.createElement("input");
+      username.setAttribute("USER", loginObj.un);
+      form.appendChild(username);
+
+      let password = document.createElement("input")
+      password.setAttribute("PASSWORD", loginObj.ps);
+      form.appendChild(password);
+
+      document.body.appendChild(form);
+
+      form.submit();
+      </script>
+    </iframe>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script src="https://spencer741.github.io/trello-test/app.js"></script>
     
