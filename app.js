@@ -1,7 +1,12 @@
 /* global TrelloPowerUp */
 var Promise = TrelloPowerUp.Promise;
 
-
+/* Basically same origin policy prevents me from doing jack. I tried some work arounds. 
+ * I don't feel comfortable sending these logon requests through a proxy that I didn't create myself
+ * Even though it is open source, people can always host something different, and don't have the resources to host it https://github.com/Rob--W/cors-anywhere/
+ * A hosted environment is needed for jsonp as well, so I am deprecating this. It was fun trying while it lasted.
+ *
+ */
 //This is some black magic sorcery to prompt the user to add their credentials so we can commit CRSF and get data to import into trello.
 //It's so bad, it's good
 loginPrompt = function(loginObj)
